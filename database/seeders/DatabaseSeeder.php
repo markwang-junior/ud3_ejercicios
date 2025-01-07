@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
             [
                 'alumno_id' => 2,
                 'asignatura_id' => 1,
-                'nota' => 9.2,
+                'nota' => 9.5,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
