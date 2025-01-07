@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Solo modificamos la tabla 'alumnos', en vez de volver a crearla
         Schema::table('alumnos', function (Blueprint $table) {
-            $table->string('apellido')->nullable()->after('nombre');
+            // Ejemplo: añadimos una columna 'telefono'
+            $table->string('telefono')->nullable()->after('email');
         });
     }
 
@@ -21,8 +23,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // En el rollback, quitamos la columna que añadimos
         Schema::table('alumnos', function (Blueprint $table) {
-            $table->dropColumn('apellido');
+            $table->dropColumn('telefono');
         });
     }
 };
