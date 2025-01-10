@@ -1,5 +1,6 @@
 <?php
 
+// app/Models/Asignatura.php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,10 +11,10 @@ class Asignatura extends Model
     use HasFactory;
 
     protected $table = 'asignaturas';
+    protected $fillable = ['nombre','descripcion'];
 
-    // Relaciones
     public function notas()
     {
-        return $this->hasMany(Nota::class, 'asignatura_id');
+        return $this->hasMany(Nota::class);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+// app/Models/Nota.php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,15 +11,18 @@ class Nota extends Model
     use HasFactory;
 
     protected $table = 'notas';
+    protected $fillable = ['alumno_id','asignatura_id','nota'];
 
-    // Relaciones
+    // Cada nota pertenece a un alumno
     public function alumno()
     {
-        return $this->belongsTo(Alumno::class, 'alumno_id');
+        return $this->belongsTo(Alumno::class);
     }
 
+    // Cada nota pertenece a una asignatura
     public function asignatura()
     {
-        return $this->belongsTo(Asignatura::class, 'asignatura_id');
+        return $this->belongsTo(Asignatura::class);
     }
 }
+

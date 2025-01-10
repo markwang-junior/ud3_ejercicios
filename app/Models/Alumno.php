@@ -1,5 +1,6 @@
 <?php
 
+// app/Models/Alumno.php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,15 +10,15 @@ class Alumno extends Model
 {
     use HasFactory;
 
-    // Tabla asociada (opcional si se cumple convención)
+    // (Opcional si el nombre de la tabla es "alumnos")
     protected $table = 'alumnos';
 
-    // Si no tienes timestamps en la tabla, pon esto a false
-    // public $timestamps = true; // (por defecto es true si tienes created_at y updated_at)
+    protected $fillable = ['nombre', 'email'];
 
     // Relaciones
     public function notas()
     {
-        return $this->hasMany(Nota::class, 'alumno_id');
+        return $this->hasMany(Nota::class);
     }
 }
+
