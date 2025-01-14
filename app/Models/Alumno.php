@@ -20,5 +20,18 @@ class Alumno extends Model
     {
         return $this->hasMany(Nota::class);
     }
+
+    public function perfil()
+    {
+        // hasOne(Clase, 'FK', 'local_PK')
+        return $this->hasOne(Perfil::class, 'usuario_id', 'id');
+    }
+
+    public function posts()
+    {
+        // hasMany(Clase, 'FK', 'local_PK')
+        return $this->hasMany(Post::class, 'usuario_id', 'id');
+    }
+
 }
 
